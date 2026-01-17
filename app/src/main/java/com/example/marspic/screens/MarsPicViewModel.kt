@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
+import com.example.marspic.network.MarsPic
 
 class MarsPicViewModel(private val marsPhotoRepository : MarsPhotoRepository): ViewModel() {
 
@@ -31,9 +32,8 @@ class MarsPicViewModel(private val marsPhotoRepository : MarsPhotoRepository): V
         viewModelScope.launch {
             try {
 
-                val listResult = marsPhotoRepository.getMarsPic()
                 marsUiState  = MarsUiState.Success(
-                    "Success: ${listResult.size} Mars photos retrieved"
+                   marsPhotoRepository.getMarsPic()
                 )
 
             }
@@ -62,7 +62,7 @@ class MarsPicViewModel(private val marsPhotoRepository : MarsPhotoRepository): V
     }
 
     sealed interface MarsUiState {
-        data class Success(val photos: String) : MarsUiState
+        data class Success(val photos: List<MarsPic>) : MarsUiState
         object Error : MarsUiState
         object Loading : MarsUiState
     }

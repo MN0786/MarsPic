@@ -34,6 +34,7 @@ fun MarsPicApp(){
                 viewModel(factory = MarsPicViewModel.Factory)
             HomeScreen(
                 marsUIState = marsViewModel.marsUiState,
+                retryAction = marsViewModel::getMarsPic,
                 contentPadding = it,
             )
 
