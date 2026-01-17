@@ -81,11 +81,4 @@ fun ResultScreen(
 
 
 }
-//@Preview(showBackground = true)
-//@Composable
-//fun HomeScreenPreview(){
-//
-//    HomeScreen(
-//        stringResource(R.string.placeholder_result)
-//    )
-//}
+
