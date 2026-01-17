@@ -30,9 +30,10 @@ fun MarsPicApp(){
         modifier  = Modifier.nestedScroll(scrollBehaviour.nestedScrollConnection)
     ) {
         Surface(modifier = Modifier.fillMaxSize()) {
-            val marsPicViewModel : MarsPicViewModel = viewModel()
+            val marsViewModel: MarsPicViewModel =
+                viewModel(factory = MarsPicViewModel.Factory)
             HomeScreen(
-                marsUIState = marsPicViewModel.marsUiState,
+                marsUIState = marsViewModel.marsUiState,
                 contentPadding = it,
             )
 

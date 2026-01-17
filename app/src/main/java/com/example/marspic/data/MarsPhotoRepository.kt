@@ -15,4 +15,5 @@ class NetworkMarsPicRepository(
 
     override suspend fun getMarsPic(): List<MarsPic>  =
         marsApiService.getPhotos()
-    }
+
+}
